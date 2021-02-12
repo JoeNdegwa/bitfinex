@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -56,7 +57,15 @@ public class Task {
 	{
 		driver.findElement(By.cssSelector("#homepage_wrapper > div.extra_content > div.landing_ticker.blue.bp3-dark.center > div > div.landing-tickers__wrap-table.landing-tickers__trading-table > div.stat-table__wrapper.landing-tickers__table.custom-scrollbar > table")).click();
 	}
-	
+	@Test
+	public void validateResult()
+	{
+		String expectedUrl = "​https://trading.bitfinex.com/t/LEO:USD?demo=true" ; 
+		// Wait for page to load
+	    wait.until(ExpectedConditions.urlMatches(expectedUrl));
+		String actualUrl = driver.getCurrentUrl(); 
+		Assert.assertEquals(actualUrl, expectedUrl);
+	}
 	@AfterTest
 	public void stop()
 	{
