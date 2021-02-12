@@ -69,6 +69,8 @@ public class Task {
 	@AfterTest
 	public void stop()
 	{
+		driver.close();
+		driver.quit();
 		
 	}
 }
