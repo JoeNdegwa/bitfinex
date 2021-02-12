@@ -46,12 +46,15 @@ public class Task {
 	@Test
 	public void search()
 	{
-		
+		// Click search icon
+		driver.findElement(By.cssSelector("#homepage_wrapper > div.extra_content > div.landing_ticker.blue.bp3-dark.center > div > div.landing-tickers__header > div > div.visible-desktop > div.bp3-tabs.ccy-tabs > div > a.landing-tickers__search > span")).click();
+		// Send text
+		driver.findElement(By.xpath("//*[@id=\"homepage_wrapper\"]/div[2]/div[2]/div/div[1]/div/div[2]/div[2]/input")).sendKeys("Unus Sed Leo");
 	}
 	@Test
 	public void clickResult()
 	{
-		
+		driver.findElement(By.cssSelector("#homepage_wrapper > div.extra_content > div.landing_ticker.blue.bp3-dark.center > div > div.landing-tickers__wrap-table.landing-tickers__trading-table > div.stat-table__wrapper.landing-tickers__table.custom-scrollbar > table")).click();
 	}
 	
 	@AfterTest
